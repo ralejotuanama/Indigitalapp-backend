@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "54e40a1a-08a7-4ae9-a2c5-c39869549a35",
+		"name": "retail",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "574659"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/oauth/token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "retailapp",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "retailapp",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "ronald152515@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/consultasindicador/tazaNatalidad",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsibWl0b3Jlc291cmNlaWQiXSwidXNlcl9uYW1lIjoicm9uYWxkMTUyNTE1QGdtYWlsLmNvbSIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJleHAiOjE2NzU2NTg1OTQsImF1dGhvcml0aWVzIjpbIkRCQSIsIkFETUlOIl0sImp0aSI6IjI3NTM3NTY1LTUxYmUtNDA4ZS1iNTBkLTZlNjMwYWIwZmM2ZSIsImNsaWVudF9pZCI6InJldGFpbGFwcCJ9.I40coGNVWzHKhwVpA39YRUlJ6J_mRjAU5CPGUMoVx1c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nombre\": \"nahitan\",\r\n\"apellido\" : \"alejo\",\r\n\"email\" : \"nahitan@gmail.com\",\r\n\"dni\" : \"52525252\",\r\n\"fechacreacion\" : \"2023-02-05\" ,\r\n\"fechanacimiento\" : \"2020-05-31\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/consultasindicador/tazaNatalidad",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consultasindicador",
+						"tazaNatalidad"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/consultasindicador/MayorCantidadNacimiento",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsibWl0b3Jlc291cmNlaWQiXSwidXNlcl9uYW1lIjoicm9uYWxkMTUyNTE1QGdtYWlsLmNvbSIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJleHAiOjE2NzU2NTk4MTYsImF1dGhvcml0aWVzIjpbIkRCQSIsIkFETUlOIl0sImp0aSI6IjUxZmM5Mjg2LTE1NmItNDJlYy1iMTY4LWRkYjc2YWQ3NzYxNSIsImNsaWVudF9pZCI6InJldGFpbGFwcCJ9.6j8wC_tj-mJLu1cZOnN5uC_En5RwQ6qlSveTydOLF_w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/consultasindicador/MayorCantidadNacimiento",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consultasindicador",
+						"MayorCantidadNacimiento"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/consultasindicador/MenorCantidadNacimiento",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/consultasindicador/MenorCantidadNacimiento",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"consultasindicador",
+						"MenorCantidadNacimiento"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/clientes/buscar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsibWl0b3Jlc291cmNlaWQiXSwidXNlcl9uYW1lIjoicm9uYWxkMTUyNTE1QGdtYWlsLmNvbSIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJleHAiOjE2NzU2NTk4MTYsImF1dGhvcml0aWVzIjpbIkRCQSIsIkFETUlOIl0sImp0aSI6IjUxZmM5Mjg2LTE1NmItNDJlYy1iMTY4LWRkYjc2YWQ3NzYxNSIsImNsaWVudF9pZCI6InJldGFpbGFwcCJ9.6j8wC_tj-mJLu1cZOnN5uC_En5RwQ6qlSveTydOLF_w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n\"email\" : \"alvaro@gmail.com\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/clientes/buscar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"buscar"
+					]
+				},
+				"description": "buscar correo"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/clientes/buscar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsibWl0b3Jlc291cmNlaWQiXSwidXNlcl9uYW1lIjoicm9uYWxkMTUyNTE1QGdtYWlsLmNvbSIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJleHAiOjE2NzU2NTk4MTYsImF1dGhvcml0aWVzIjpbIkRCQSIsIkFETUlOIl0sImp0aSI6IjUxZmM5Mjg2LTE1NmItNDJlYy1iMTY4LWRkYjc2YWQ3NzYxNSIsImNsaWVudF9pZCI6InJldGFpbGFwcCJ9.6j8wC_tj-mJLu1cZOnN5uC_En5RwQ6qlSveTydOLF_w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dni\" : \"48069158\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/clientes/buscar",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"buscar"
+					]
+				},
+				"description": "buscar dni"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/clientes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsibWl0b3Jlc291cmNlaWQiXSwidXNlcl9uYW1lIjoicm9uYWxkMTUyNTE1QGdtYWlsLmNvbSIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJleHAiOjE2NzU2NTk4MTYsImF1dGhvcml0aWVzIjpbIkRCQSIsIkFETUlOIl0sImp0aSI6IjUxZmM5Mjg2LTE1NmItNDJlYy1iMTY4LWRkYjc2YWQ3NzYxNSIsImNsaWVudF9pZCI6InJldGFpbGFwcCJ9.6j8wC_tj-mJLu1cZOnN5uC_En5RwQ6qlSveTydOLF_w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/clientes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				},
+				"description": "listado clientes"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/clientes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsibWl0b3Jlc291cmNlaWQiXSwidXNlcl9uYW1lIjoicm9uYWxkMTUyNTE1QGdtYWlsLmNvbSIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJleHAiOjE2NzU2NTk4MTYsImF1dGhvcml0aWVzIjpbIkRCQSIsIkFETUlOIl0sImp0aSI6IjUxZmM5Mjg2LTE1NmItNDJlYy1iMTY4LWRkYjc2YWQ3NzYxNSIsImNsaWVudF9pZCI6InJldGFpbGFwcCJ9.6j8wC_tj-mJLu1cZOnN5uC_En5RwQ6qlSveTydOLF_w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nombre\": \"juan\",\r\n        \"apellido\": \"alejo\",\r\n        \"email\": \"juan@gmail.com\",\r\n        \"dni\": \"08849330\",\r\n        \"fechacreacion\": \"2023-02-05\",\r\n        \"fechanacimiento\": \"1961-01-27\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/clientes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				},
+				"description": "crear cliente"
+			},
+			"response": []
+		}
+	]
+}
