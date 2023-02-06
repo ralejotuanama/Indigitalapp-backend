@@ -1,0 +1,135 @@
+-- FUNCTION: public.fn_clientes_mayorcantidadnacidosañomes()
+
+-- DROP FUNCTION IF EXISTS public."fn_clientes_mayorcantidadnacidosañomes"();
+
+CREATE OR REPLACE FUNCTION public."fn_clientes_mayorcantidadnacidosañomes"(
+	)
+    RETURNS TABLE(cantidad integer, fechanacimiento text) 
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE PARALLEL UNSAFE
+    ROWS 1000
+
+AS $BODY$
+DECLARE 
+    var_r record;
+BEGIN
+FOR var_r IN(
+	select (count(*)::int) as cantidad, to_char(c.fechanacimiento, 'MM/yyyy') as fechanacimiento from cliente c 
+	group by to_char(c.fechanacimiento, 'MM/yyyy') order by to_char(c.fechanacimiento, 'MM/yyyy') desc
+	limit 1
+	)  
+ LOOP
+        cantidad := var_r.cantidad; 
+ 		fechanacimiento := var_r.fechanacimiento;
+        RETURN NEXT;
+ END LOOP;
+END; 
+$BODY$;
+
+ALTER FUNCTION public."fn_clientes_mayorcantidadnacidosañomes"()
+    OWNER TO postgres;
+
+
+
+
+
+-- FUNCTION: public.fn_clientes_menorcantidadnacidosañomes()
+
+-- DROP FUNCTION IF EXISTS public."fn_clientes_menorcantidadnacidosañomes"();
+
+CREATE OR REPLACE FUNCTION public."fn_clientes_menorcantidadnacidosañomes"(
+	)
+    RETURNS TABLE(cantidad integer, fechanacimiento text) 
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE PARALLEL UNSAFE
+    ROWS 1000
+
+AS $BODY$
+DECLARE 
+    var_r record;
+BEGIN
+FOR var_r IN(
+	select (count(*)::int) as cantidad, to_char(c.fechanacimiento, 'MM/yyyy') as fechanacimiento from cliente c 
+	group by to_char(c.fechanacimiento, 'MM/yyyy') order by to_char(c.fechanacimiento, 'MM/yyyy') asc
+	limit 1
+	)  
+ LOOP
+        cantidad := var_r.cantidad; 
+ 		fechanacimiento := var_r.fechanacimiento;
+        RETURN NEXT;
+ END LOOP;
+END; 
+$BODY$;
+
+ALTER FUNCTION public."fn_clientes_menorcantidadnacidosañomes"()
+    OWNER TO postgres;
+
+
+
+
+-- FUNCTION: public.fn_clientes_tazanatalidad()
+
+-- DROP FUNCTION IF EXISTS public.fn_clientes_tazanatalidad();
+
+CREATE OR REPLACE FUNCTION public.fn_clientes_tazanatalidad(
+	)
+    RETURNS TABLE(cantidad integer, fechanacimiento text) 
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE PARALLEL UNSAFE
+    ROWS 1000
+
+AS $BODY$
+DECLARE 
+    var_r record;
+BEGIN
+FOR var_r IN(
+	select ((count(*)::int) * 1000) / (select count(*) from cliente) as cantidad, to_char(c.fechanacimiento, 'MM/yyyy') as fechanacimiento from cliente c 
+	group by to_char(c.fechanacimiento, 'MM/yyyy') order by to_char(c.fechanacimiento, 'MM/yyyy') desc
+
+	)  
+ LOOP
+        cantidad := var_r.cantidad; 
+ 		fechanacimiento := var_r.fechanacimiento;
+        RETURN NEXT;
+ END LOOP;
+END; 
+$BODY$;
+
+ALTER FUNCTION public.fn_clientes_tazanatalidad()
+    OWNER TO postgres;
+
+
+
+-- FUNCTION: public.fn_listarclientesnacidosmesaño2()
+
+-- DROP FUNCTION IF EXISTS public."fn_listarclientesnacidosmesaño2"();
+
+CREATE OR REPLACE FUNCTION public."fn_listarclientesnacidosmesaño2"(
+	)
+    RETURNS TABLE(cantidad integer, fechanacimiento text) 
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE PARALLEL UNSAFE
+    ROWS 1000
+
+AS $BODY$
+DECLARE 
+    var_r record;
+BEGIN
+FOR var_r IN(
+	select (count(*)::int) as cantidad, to_char(c.fechanacimiento, 'dd/MM/yyyy') as fechanacimiento from cliente c 
+	group by to_char(c.fechanacimiento, 'dd/MM/yyyy') order by to_char(c.fechanacimiento, 'dd/MM/yyyy') asc 
+	)  
+ LOOP
+        cantidad := var_r.cantidad; 
+ 		fechanacimiento := var_r.fechanacimiento;
+        RETURN NEXT;
+ END LOOP;
+END; 
+$BODY$;
+
+ALTER FUNCTION public."fn_listarclientesnacidosmesaño2"()
+    OWNER TO postgres;
