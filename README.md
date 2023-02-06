@@ -20,3 +20,7 @@ PASO 5: Para hacer busquedas por email y dni utilizamos el respectivo endpoint :
 
 PASO 6: Para el tema de los indicadores se utiliza la siguientes url: localhost:8080/consultasindicador/tazaNatalidad, localhost:8080/consultasindicador/MayorCantidadNacimiento, localhost:8080/consultasindicador/MenorCantidadNacimiento , se adjunta la coleccion son los respectivos ejemplos.
 
+
+ADICIONAL:
+
+Para el correcto funcionamiento del aplicativo backend debemos utilizar los scripts que se encuentran en .txt.
